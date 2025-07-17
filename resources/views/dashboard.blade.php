@@ -10,6 +10,7 @@
         }
 
         .dashboard-container {
+            width: 100%;  /* Ensure full width on smaller screens */
             min-height: 100vh;
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -92,7 +93,7 @@
             height: 100%;
             background: rgba(0, 60, 80, 0.85);
             border-right: 2px solid #ff5e62;
-            transition: left 0.3s ease;
+            transition: left 0.2s ease;  /* Faster transition */
             z-index: 100;
             padding: 2rem 1.5rem;
         }
@@ -135,7 +136,25 @@
             }
 
             .card-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Smaller column size for mobile */
+            }
+
+            .card {
+                padding: 1.5rem;  /* Less padding for smaller screens */
+            }
+
+            .card h2 {
+                font-size: 1.6rem;
+            }
+
+            .card p {
+                font-size: 1rem;
+            }
+
+            .card:hover {
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255, 255, 255, 0.2);
             }
         }
     </style>
@@ -149,6 +168,8 @@
             <a href="{{ url('/bookings/create') }}">➕ Create Booking</a>
             <a href="{{ url('/bookings') }}">📖 View Bookings</a>
             <a href="{{ url('/profile') }}">👥 User Management</a>
+            <!-- Add close button -->
+            <button onclick="document.querySelector('.drawer').classList.remove('open')">✖ Close</button>
         </div>
     </div>
 
